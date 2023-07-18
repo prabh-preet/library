@@ -1,0 +1,80 @@
+package library;
+
+class Book {
+    private String title;
+    private String author;
+    private int year;
+
+    public Book(String title, String author, int year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+
+    public void displayDetails() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Year: " + year);
+    }
+}
+
+class FictionBook extends Book {
+    private String genre;
+
+    public FictionBook(String title, String author, int year, String genre) {
+        super(title, author, year);
+        this.genre = genre;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Genre: " + genre);
+    }
+}
+
+class NonFictionBook extends Book {
+    private String subject;
+
+    public NonFictionBook(String title, String author, int year, String subject) {
+        super(title, author, year);
+        this.subject = subject;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Subject: " + subject);
+    }
+}
+
+class ReferenceBook extends Book {
+    private String category;
+
+    public ReferenceBook(String title, String author, int year, String category) {
+        super(title, author, year);
+        this.category = category;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Category: " + category);
+    }
+}
+
+public class LibrarySystem {
+    public static void main(String[] args) {
+        Book fictionBook = new FictionBook("The Lord of the Rings", "John Ronald Reuel Tolkien", 1937, "Fantasy");
+        Book nonFictionBook = new NonFictionBook("Out of Africa", "Isak Dinesen", 1992, "History");
+        Book referenceBook = new ReferenceBook("Canadian Oxford Dictionary", "Katherine Barber", 1998, "Dictionary");
+
+        fictionBook.displayDetails();
+        System.out.println();
+
+        nonFictionBook.displayDetails();
+        System.out.println();
+
+        referenceBook.displayDetails();
+    }
+}
